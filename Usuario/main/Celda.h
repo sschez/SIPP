@@ -1,17 +1,17 @@
 class Celda{
-    Celda(int valueNumCelda, string valueIdZona){
-        numCelda = valueNumCelda;
-        idZona = valueIdZona;
-        estadoCelda = false;
-        estadoRestriccion = false;
-    }
     public:
+        Celda(int valueNumCelda, String valueIdZona){
+          numCelda = valueNumCelda;
+          idZona = valueIdZona;
+          estadoCelda = false;
+          estadoRestriccion = false;
+        }
         int getNumCelda(){return numCelda;}
         bool getEstadoCelda(){return estadoCelda;}
         bool getEstadoRestriccion(){return estadoRestriccion;}
-        string getIdZona(){return idZona;}
+        String getIdZona(){return idZona;}
         void establecerEstadoCelda(){
-            if(Serial.Read()==1){
+            if(digitalRead(9)==1){
                 estadoCelda = true;
                 estadoRestriccion = true;
             }
@@ -26,7 +26,5 @@ class Celda{
         int numCelda;
         bool estadoCelda;
         bool estadoRestriccion;
-        string idZona;
+        String idZona;
 };
-
-

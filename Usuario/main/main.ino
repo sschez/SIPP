@@ -1,4 +1,4 @@
-#include "../Modelo/Celda.h"
+#include "Celda.h"
 
 Celda c(1,"provenza");
 
@@ -7,15 +7,10 @@ void setup() {
 }
 
 void loop() {
+  c.establecerEstadoCelda();
   if(c.getEstadoCelda() == true){
     Serial.println("Celda ocupada");
-    while(c.getEstadoRestriccion()== true){
-      delay(2000);
-      Serial.println("Barreras arriba");
-      if(v.pagar() == true){
-        c.setEstadoRestriccion();
-      }
-    }
+     delay(2000);
+    Serial.println("Barreras arriba");
   }
-  c.establecerEstadoCelda();
 }
