@@ -12,7 +12,7 @@ class Celda{
         bool getEstadoRestriccion(){return estadoRestriccion;}
         String getIdZona(){return idZona;}
         void establecerEstadoCelda(){
-            if(digitalRead(IR)==0){
+            if(digitalRead(IR)==1){
                 estadoCelda = true;
                 estadoRestriccion = true;
             } else {

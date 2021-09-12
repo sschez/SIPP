@@ -1,10 +1,10 @@
 class Vehiculo{
     public: 
-        Vehiculo(String vPlaca, int vNum, int pinR, int pinV, int IR){
-            placa = vPlaca;
+        Vehiculo(int pinR, int pinV, int IR){
+            placa = "";
+            numCelda = "";
             horaIngreso = 0;
             horaSalida = 0;
-            numCelda = vNum;
             pinIR = IR;
             ledV = pinV;
             ledR = pinR;
@@ -28,7 +28,7 @@ class Vehiculo{
 
         int calcularPago(int costo){
             int tTotal = horaIngreso - horaSalida;
-            tToal = (tTotal/3600000) + 1;
+            tTotal = (tTotal/3600000) + 1;
             return tTotal * costo;
         }
 
