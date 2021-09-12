@@ -1,26 +1,48 @@
-#include <TimeLib.h>
-
 class Vehiculo{
     public: 
-        Vehiculo(String vPlaca, int vNum){
+        Vehiculo(String vPlaca, int vNum, int pinR, int pinV, int IR){
             placa = vPlaca;
             horaIngreso = 0;
             horaSalida = 0;
             numCelda = vNum;
+            pinIR = IR;
+            ledV = pinV;
+            ledR = pinR;
         }
         
         String getPlaca(){return placa;}
         void setPlaca(String vPlaca){placa = vPlaca;}
-        Time getHoraIngreso(){return horaIngreso;}
-        Time getHoraSalida(){return horaSalida;}
-        void setHoraSalida(Time vOut){horaSalida = vOut;}
+        int getHoraIngreso(){return horaIngreso;}
+        int getHoraSalida(){return horaSalida;}
+        void setHoraSalida(int vOut){horaSalida = vOut;}
         int getNumCelda(){return numCelda;}
         void setNumCelda(int vCelda){numCelda = vCelda;}
 
+        void registrarIngreso(){
+            if (digitalRead(pinIR) == 1){
+                horaIngreso = millis();
+                digitalWrite(ledR, LOW);
+                digitalWrite(ledV, HIGH);
+            }
+        }
+
+        int calcularPago(int costo){
+            int tTotal = horaIngreso - horaSalida;
+            tToal = (tTotal/3600000) + 1;
+            return tTotal * costo;
+        }
+
+        void pagar(int pinV, int pinR){
+            digitalWrite(ledV, LOW);
+            digitalWrite(ledR, HIGH);
+        }
         
     private:
         String placa;
-        Time horaIngreso;
-        Time horaSalida;
-        int numCelda
+        int horaIngreso;
+        int horaSalida;
+        int numCelda;
+        int pinIR;
+        int ledV;
+        int ledR;
 };

@@ -1,4 +1,4 @@
 Archivo de especificación de los pines a utilizar
  - Data sensor IR : Pin 9
- - Led 1 : Pin 13
- - Led 2 : Pin 12
+ - Led 1 - rojo : Pin 11
+ - Led 2 - verde: Pin 12
