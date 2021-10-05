@@ -15,7 +15,7 @@ body{
     font-size: 20px;
     color: azure;
     margin-bottom: 5%;
-    margin-right: 4%;
+    margin-right: 5%;
 }
 
 .botones{
@@ -32,3 +32,18 @@ body{
     margin-bottom: 10%;
 }
 
+.boton_redondo{
+    margin-top: 5%;
+    font-size: 50px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-right: 10%;
+}
+
+.boton_regresar{
+    background-color: orange;
+    color: aliceblue;
+    width: 75px;
+    height: 75px;
+}
