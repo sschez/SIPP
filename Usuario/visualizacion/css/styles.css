@@ -7,7 +7,7 @@ body{
     margin-bottom: 5%;
     margin-left: 15%;
     margin-right: 15%;
-    background-color: rgb(0, 113, 193);;
+    background-color: rgb(0, 113, 193);
 }
 
 .info{/*Informacion de tiempo y zona en el index*/
@@ -29,10 +29,11 @@ body{
     width: 300px;
     height: 90px;
     border-radius: 5%;
-    margin-bottom: 10%;
+  /**  margin-bottom: 10%;**/
 }
 
 .boton_redondo{
+
     margin-top: 5%;
     font-size: 50px;
     border-radius: 50%;
@@ -46,4 +47,34 @@ body{
     color: aliceblue;
     width: 75px;
     height: 75px;
+}
+
+.info_registro{/*Informaciones en pantalla*/
+    text-align: center;
+    font-size: 20px;
+    color: azure;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+.info_registrado{/*Informaciones en pantalla*/
+    text-align: center;
+    font-size: 20px;
+    color: azure;
+    margin-top: 20%;
+}
+
+.info_ingreso{
+    margin-top: 10%;
+}
+
+.factura{
+    margin-top: 5%;
+    margin-bottom: 0%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: rgb(0, 113, 193);
+}
+
+.boton_factura{
+    margin-top: 180%;
 }

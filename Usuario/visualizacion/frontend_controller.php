@@ -14,7 +14,6 @@
         die();
     }
     function redireccionarDatos($id, $data){
-        die();
     }
     $id=$_GET["id"];
     $data=$_GET["data"];
