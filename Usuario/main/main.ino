@@ -29,6 +29,7 @@ void setup() {
 void cambiarLed(){
   digitalWrite(ledV, LOW);
   digitalWrite(ledR, HIGH);
+  c.establecerEstadoCelda();
 }
 
 String obtenerPlaca(){
@@ -96,7 +97,6 @@ int obtenerCelda(){
 }
 
 bool salidaVehiculo(){
-  Serial.println("funcion dudosa");
   bool val = false;
   String placa = "";
 
@@ -248,13 +248,10 @@ void loop() {
 
   int i = Serial.readString().toInt();
 
-  switch (i){
-    case 1:
+  if (i == 1){
       Serial.println("Celdas disponibles: ");
       Serial.print(c.getNumCelda());
       Serial.print(" estado: ");
-
-      c.establecerEstadoCelda();
       
       if (c.getEstadoCelda()){
         Serial.println("ocupado.");
@@ -270,8 +267,7 @@ void loop() {
       v1.registrarIngreso();
 
       Serial.println("Disfrute de su estadia!");
-
-    case 2:
+  }else if(i == 2){
       bool cond2 = salidaVehiculo();
       if (cond2){
         Serial.print("Monto a pagar: ");
@@ -281,10 +277,7 @@ void loop() {
         registrarPago(pago);
         entregarFactura(pago); 
       }
-      break;
-
-    default:
+  }else{
       Serial.println("\nPor favor ingrese una opción válida");
-      break;
   }
 }
