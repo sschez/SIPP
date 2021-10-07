@@ -8,15 +8,23 @@
                 header("Location: ingresar.html");
                 break;
             case 2:
-                header("Location: retirar.html");
+                header("Location: ingresar_placa.html");
+                break;
+            case 11:
+                $c=$_GET['c'];
+                header("Location: ingresar_placa.php?c=$c");
+                break;
+            case 12:
+                $placa = $_POST['placa'];
+                $c=$_GET['c'];
+                header("Location: confirmacion_ingreso.php?c=$c&p=$placa");
+                break;
+            case 21:
+                header("Location: ingresar_placa.html");
                 break;
         }
         die();
     }
-    function redireccionarDatos($id, $data){
-    }
-    $id=$_GET["id"];
-    $data=$_GET["data"];
-    if(isset($data)){redireccionar($id);}
-    else{redireccionarDatos($id,$data);}
+    $id=$_GET['id'];
+    redireccionar($id);
 ?>

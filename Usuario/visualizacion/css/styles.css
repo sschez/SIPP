@@ -33,7 +33,6 @@ body{
 }
 
 .boton_redondo{
-
     margin-top: 5%;
     font-size: 50px;
     border-radius: 50%;
@@ -77,4 +76,13 @@ body{
 
 .boton_factura{
     margin-top: 180%;
+}
+
+.formulario{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.boton_enviar{
+    margin-top: 25%;
 }

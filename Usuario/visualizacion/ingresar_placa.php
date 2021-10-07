@@ -28,23 +28,18 @@
   </head>
   <body>
       <div class="contenedor">
-        <div class="info_registro">
-            <!--MENSAJE DE ALERTA (Hay que  trabajarlo desde el controlador)-->
-           <p>NO SE ENCUENTRA NINGÚN VEHICULO EN ESTA CELDA</p><br>
-           <!--<p>VEHICULO NO ENCONTRADO</p>-->
-           <p>POR FAVOR INTENTE NUEVAMENTE</p>
-
-           <!--Otros mensajes pueden ser-->
-           <!--<p>POR FAVOR INGRESE UNA PLACA VÁLIDA-<p>-->
-               <!--<p>POR FAVOR RETIRE EL RECIBO-->
-        </div>
-        <div class="row botones">
-            <div class="col-sm-11"></div>
-            <div class="col-sm-1">
-                <a href="frontend_controller.php?id=1"><!--Redireccionar a la pagina origen-->
-                    <button class="boton_regresar"><i class="fas fa-undo-alt fa-3x"></i></button>
-                </a>
-            </div>
+        <div class="formulario">
+            <p><h3>INGRESE LA PLACA DE SU VEHICULO</h3></p>
+            <form action="frontend_controller.php?id=12&c=<?php echo $_GET['c']; ?>" method="POST" class="botones">
+                <input type="text" name="placa" required class="form-control-lg" autocomplete="OFF"
+                maxlength="6" minlength="6"/>
+                <div class="row boton_enviar">
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1">
+                        <button type="submit" class="boton_regresar">LISTO</button>
+                    </div>
+                </div>
+            </form>
         </div>
       </div>
   </body>

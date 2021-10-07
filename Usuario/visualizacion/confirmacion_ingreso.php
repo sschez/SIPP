@@ -32,14 +32,14 @@
            <p>¡VEHICULO REGISTRADO!</p><br>
            <p>¡DISFRUTE DE SU ESTADIA!</p>
            <div class="row info_ingreso">
-               <div class="col-sm-3">
-                    <p>PLACA: IJK176 </p><!--Llamado de la placa-->
-                    <p>CELDA: 01</p><!--Llamado de la celda-->
-                    <p>FECHA: 12/02/2022</p>
+               <div class="col-sm-4">
+                    <p>PLACA: <?php echo $_GET['p']; ?> </p><!--Llamado de la placa-->
+                    <p>CELDA: <?php echo $_GET['c']; ?></p><!--Llamado de la celda-->
+                    <p>FECHA: <?php echo date('m-d-Y h:i:s a', time()); ?></p>
                </div>
-               <div class="col-sm-7"></div>
+               <div class="col-sm-6"></div>
                <div class="col-sm-2 botones">
-                   <a href="frontend_controller.php?id=0">
+                   <a href="frontend_controller.php?id=0&data=">
                         <button class="boton">FINALIZAR</button>
                     </a>
                 </div>
