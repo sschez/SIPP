@@ -31,8 +31,12 @@
 
         <div class="botones">
             <p>
-                <a href="frontend_controller.php?id=11&c=1"><button class="btn-success boton_redondo">01</button></a>
-                <a href="frontend_controller.php?id=11&c=2"><button class="btn-danger boton_redondo" disabled="true">02</button></a>
+                <?php if(){ ?>
+                    <a href="frontend_controller.php?id=11&c=1"><button class="btn-success boton_redondo">01</button></a>
+                <?php }else{ ?>
+                    <a href="frontend_controller.php?id=11&c=1"><button class="btn-danger boton_redondo" disabled="true">01</button></a>
+                <?php } ?>
+                <a href="frontend_controller.php?id=11&c=1"><button class="btn-danger boton_redondo" disabled="true">02</button></a>
                 <a href="frontend_controller.php?id=11&c=3"><button class="btn-success boton_redondo">03</button></a>
                 <a href="frontend_controller.php?id=11&c=4"><button class="btn-danger boton_redondo" disabled="true">04</button></a>
                 <a href="frontend_controller.php?id=11&c=5"><button class="btn-danger boton_redondo" disabled="true">05</button></a>

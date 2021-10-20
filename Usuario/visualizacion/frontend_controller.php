@@ -5,7 +5,7 @@
                 header("Location: index.html");
                 break;
             case 1:
-                header("Location: ingresar.html");
+                header("Location: ingresar.php");
                 break;
             case 2:
                 header("Location: ingresar_placa.html");
