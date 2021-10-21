@@ -21,7 +21,7 @@
       
   </head>
   <body>
-      <div class="contenedor"><br>
+      <div class="contenedor info"><br>
             <div class="titulo"><h1>Usuario o contraseña no validos</h1></div> 
             <div class="row">
                     <div class="col-sm-6"></div>

@@ -27,7 +27,7 @@
   <body>
       <div class="contenedor"><br>
             <div class="titulo"><h1>INICIAR SESION</h1></div>
-            <form action="../Admin/controller/adminController.php?action=check_login" method="POST">
+            <form action="../Admin/controller/Main.php?action=check_login" method="POST">
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-5 label_formulario "><label><h2>Usuario</h2></label></div>

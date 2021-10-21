@@ -1,5 +1,5 @@
 <?php
-    require dirname( __DIR__ ) . '/model/Admin.php';
+    require_once dirname( __DIR__ ) . '/model/Admin.php';
 
     class adminController{
 
@@ -19,22 +19,9 @@
         }
 
         public function cerrarSesion(){
-            require dirname( __DIR__ ) . '../index.php';
+            session_start();
+            session_destroy();
+            header("Location:../index.php");
         }
-
     }
-
-    if(isset($_GET['action']) && $_GET['action']=='check_login'){
-        $controlador = new adminController();
-        $cedula = $_POST['cedula'];
-        $contrasena = $_POST['contrasena'];
-        $controlador->verificar($cedula,$contrasena);
-    }else if(isset($_GET['action']) && $_GET['action']=='logout'){
-        $controlador = new adminController();
-        $controlador->cerrarSesion();
-    }else{
-        $controlador = new adminController();
-        $controlador->cargarVistaLogin();
-    }
-
 ?>

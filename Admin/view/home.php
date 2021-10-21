@@ -18,37 +18,35 @@
       integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
      <!--Conexion con estilos.css-->
-     <link type="text/css" href="../css/style_admin.css" rel="stylesheet" media="all" >
+     <link type="text/css" href="../css/style_home.css" rel="stylesheet" media="all" >
+
   </head>
   <body>
-    <nav class="navbar navbar-inverse bg-primary">
+    <nav class="navbar navbar-inverse nav1">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand text-light"><br><h3>SIPP Administrador</h3></a>
         </div>
-        <!--<ul class="nav navbar-nav navbar-right">
-          <button type="btn btn" class="btn btn-outline-primary">Cerrar sesión</button>
-        </ul>-->
-        <a href="../controller/adminController.php?action=logout">
+        <a href="../controller/Main.php?action=logout">
           <button type="button" class="btn btn-outline-light btn-lg navbar-btn">Cerrar Sesión</button>
         </a>
       </div>
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="">
-            <p class="">Bienvenido al panel de administración de SIPP</p><br>
-            <p>Aqui podras:</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-               Voluptate illum quo beatae itaque numquam labore facilis 
-               velit provident voluptas accusamus illo tempora, quos 
-               voluptatum et doloribus ex, neque qui rem!</p>
+        <div class="col-sm-8">
+          <div class="info">
+            <div class="titulo"><h2>Bienvenido al panel de administración de SIPP</h2></div><br>
+            <p><h3>Aqui podras:</h3></p>
+            <div class="texto_info"><h5>- Visualizar los datos directamente tomados 
+              en las zonas de parqueo<br><br>- Ver graficas y tablas del comportamiento
+               de los parqueaderos<br><br>- Editar las tarifas de parqueo y controlar
+               la disponibilidad de parqueaderos</h5></div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <button type="button" class="boton_regresar"><h3>Administración</h3></button><br>
-          <button type="button" class="boton_regresar"><h3>Visualización</h3></button>
+        <div class="col-sm-4">
+          <button type="button" class="boton"><h3>Administración</h3></button><br>
+          <button type="button" class="boton"><h3>Visualización</h3></button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+require_once 'Conexion.php';
     class Admin{
         private $db;
         private $cedula;
@@ -10,8 +10,6 @@ include 'conexion.php';
             $this->cedula = $cedula;
             $this->contrasena = $contrasena;
         }
-
-        public function __destruct(){}
         
         public function verificarCedula(){
             $sql = "SELECT cedulaAdmin FROM administrador WHERE cedulaAdmin = '$this->cedula'";
