@@ -21,39 +21,40 @@
       <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>-->
 
      <!--Conexion con estilos.css-->
-      <!--<link rel="stylesheet" href="css/style_admin.css"> -->
       <link type="text/css" href="../Admin/css/style_admin.css" rel="stylesheet" media="all" >
+      
   </head>
   <body>
-      <div class="contenedor"><br>
-            <div class="titulo"><h1>INICIAR SESION</h1></div>
-            <form action="../Admin/controller/Main.php?action=check_login" method="POST">
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-5 label_formulario "><label><h2>Usuario</h2></label></div>
-                    <div class="col-sm-4">
-                        <input type="text" name="cedula" required class="form-control-lg" autocomplete="OFF"/>
+      <div class="container container-fluid">
+            <div class="contenedor"><br>
+                <div class="titulo"><h1>INICIAR SESION</h1></div>
+                <form action="../Admin/controller/Main.php?action=check_login" method="POST">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-5 label_formulario "><label><h2>Usuario</h2></label></div>
+                        <div class="col-sm-4">
+                            <input type="text" name="cedula" required class="form-control-lg" autocomplete="OFF"/>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-5 label_formulario "><label><h2>Contraseña</h2></label></div>
-                    <div class="col-sm-4">
-                        <input type="password" name="contrasena" required class="form-control-lg" autocomplete="OFF"/>
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-5 label_formulario "><label><h2>Contraseña</h2></label></div>
+                        <div class="col-sm-4">
+                            <input type="password" name="contrasena" required class="form-control-lg" autocomplete="OFF"/>
+                        </div>
                     </div>
-                </div>
-                <div class="row boton_enviar">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6">
-                        <button type="submit" class="boton_regresar"><h3>Confirmar</h3></button>
-                    </div>
-                </div>
-            </form>
-       </div>
-       <div class="row imagenes">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-7"><img src="../Admin/img/alcaldia.PNG"></div>
-        <div class="col-sm-4"><img src="../Admin/img/terminales.PNG"></div>
-    </div>
+                    <div class="row boton_enviar">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                            <button type="submit" class="boton_regresar"><h3>Confirmar</h3></button>
+                        </div>
+                </form>
+            </div>
+            <div class="row imagenes">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-7"><img src="../Admin/img/alcaldia.PNG"></div>
+                <div class="col-sm-4"><img src="../Admin/img/terminales.PNG"></div>
+            </div>
+        </div>
   </body>
 </html>

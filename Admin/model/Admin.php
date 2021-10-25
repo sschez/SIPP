@@ -1,35 +1,41 @@
 <?php
 require_once 'Conexion.php';
+require_once 'ConexionDB.php';
+
     class Admin{
-        private $db;
+
+        private $persistance;
         private $cedula;
         private $contrasena;
+        private $tipo;
 
         public function __construct($cedula, $contrasena){
-            $this->db = Conexion::conectar();
+            $this->persistance = new ConexionDB();
             $this->cedula = $cedula;
             $this->contrasena = $contrasena;
         }
         
-        public function verificarCedula(){
-            $sql = "SELECT cedulaAdmin FROM administrador WHERE cedulaAdmin = '$this->cedula'";
-            $resultado = $this->db->query($sql);
-            while($row = $resultado->fetch_assoc()){
-                $ced = $row['cedulaAdmin'];
-                if($ced == $this->cedula){return true;}
-                else{return false;}
-            }
+        public function cedulaValida(){
+            $cedula = $this->persistance->consultar($this->cedula,'cedulaAdmin');
+            if($cedula == $this->cedula){return true;}
+            else{return false;}
         }
 
-        public function verificarContrasena(){
-            $sql = "SELECT cedulaAdmin, contrasena FROM administrador WHERE cedulaAdmin = '$this->cedula'";
-            $resultado = $this->db->query($sql);
-            while($row = $resultado->fetch_assoc()){
-                $ced = $row['cedulaAdmin'];
-                $pass = $row['contrasena'];
-                if($ced == $this->cedula && $pass == $this->contrasena){return true;}
-                else{return false;}
+        public function contrasenaValida(){
+            $contrasena = $this->persistance->consultar($this->cedula,'contrasena');
+            if($contrasena == $this->contrasena){
+                $this->tipo = $this->persistance->consultar($this->cedula,'tipo');
+                return true;
             }
+            else{return false; }
+        }
+
+        public function getCedula(){
+            return $this->cedula;
+        }
+
+        public function getTipo(){
+            return $this->tipo;
         }
 
     }
