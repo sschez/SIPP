@@ -31,7 +31,7 @@
 
         <div class="botones">
             <p>
-                <?php if(){ ?>
+                <?php if(true){ ?>
                     <a href="frontend_controller.php?id=11&c=1"><button class="btn-success boton_redondo">01</button></a>
                 <?php }else{ ?>
                     <a href="frontend_controller.php?id=11&c=1"><button class="btn-danger boton_redondo" disabled="true">01</button></a>

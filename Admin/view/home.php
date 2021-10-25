@@ -22,6 +22,7 @@
 
   </head>
   <body>
+
     <nav class="navbar navbar-inverse nav1">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -32,12 +33,15 @@
         </a>
       </div>
     </nav>
-    <div class="container">
+
+    <div class="container container-fluid">
       <div class="row">
         <div class="col-sm-8">
           <div class="info">
-            <div class="titulo"><h2>Bienvenido al panel de administración de SIPP</h2></div><br>
-            <p><h3>Aqui podras:</h3></p>
+            <div class="titulo">
+              <h2>Bienvenido al panel de administración de SIPP:<?php echo $adminSession->getCurrentAdmin() ?></h2>
+            </div><br>
+            <p><h3>Aqui podras:<?php echo $adminSession->getCurrentType() ?></h3></p>
             <div class="texto_info"><h5>- Visualizar los datos directamente tomados 
               en las zonas de parqueo<br><br>- Ver graficas y tablas del comportamiento
                de los parqueaderos<br><br>- Editar las tarifas de parqueo y controlar
@@ -45,10 +49,13 @@
           </div>
         </div>
         <div class="col-sm-4">
-          <button type="button" class="boton"><h3>Administración</h3></button><br>
-          <button type="button" class="boton"><h3>Visualización</h3></button>
+          <?php if($adminSession->getCurrentType()==1){?>
+            <a href="#"><button type="button" class="boton"><h3>Administración</h3></button></a><br>
+          <?php } ?>
+          <a href="#"><button type="button" class="boton"><h3>Visualización</h3></button></a>
         </div>
       </div>
     </div>
+
   </body>
 </html>

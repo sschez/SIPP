@@ -22,7 +22,9 @@
   </head>
   <body>
       <div class="contenedor info"><br>
-            <div class="titulo"><h1>Usuario o contraseña no validos</h1></div> 
+            <div class="titulo">
+              <h1><?php echo $error; ?></h1>
+            </div> 
             <div class="row">
                     <div class="col-sm-6"></div>
                     <div class="col-sm-2">

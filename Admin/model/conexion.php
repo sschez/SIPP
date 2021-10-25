@@ -1,8 +1,6 @@
 <?php
-    class Conexion{
-        public static function conectar(){
-            $con = new mysqli("localhost","root","","sipp");
-            return $con;
-        }
+    interface Conexion{
+        public function conectar(){}
+        public function consultar($cedula, $datoAConsultar);
     }
 ?>
