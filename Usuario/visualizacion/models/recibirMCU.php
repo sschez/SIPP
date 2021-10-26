@@ -20,5 +20,5 @@
 
     $resultado = mysqli_query( $conexion, $consulta);
     $resultado2 = mysqli_query( $conexion, $consulta2);
-
+    
 ?>
