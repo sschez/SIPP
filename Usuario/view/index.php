@@ -16,29 +16,29 @@
       integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
      <!--Conexion con estilos.css-->
-      <link rel="stylesheet" href="css/styles.css"> 
+      <link rel="stylesheet" href="../css/styles.css"> 
 
   </head>
   <body>
       <div class="contenedor">
-        <div class="info">
-            <p>Nombre Zona</p><!--Llamado a nombre zona--->
-            <p>Fecha y Hora</p><!--Llamado a fecha y hora--->
-            <p>Precio Hora: $</p><!--Llamado a tarifa--->
+        <div class="info"><?php date_default_timezone_set('America/Bogota') ?>
+            <p>Nombre Zona: <?php echo $nombre; ?></p><!--Llamado a nombre zona--->
+            <p>Fecha y Hora: <?php echo  date('d-m-Y h:i', time()); ?></p><!--Llamado a fecha y hora--->
+            <p>Precio Hora: $<?php echo $tarifa; ?></p><!--Llamado a tarifa--->
         </div>
 
         <div class="row imagenes">
             <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="img/alcaldia.PNG"></div>
+            <div class="col-sm-2"><img src="../img/alcaldia.PNG"></div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="img/terminales.PNG"></div>
+            <div class="col-sm-2"><img src="../img/terminales.PNG"></div>
         </div>
 
         <div class="row botones">
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <!--Vinculo al front-end controller -->
-                <a href="frontend_controller.php?id=1"><button class="btn boton" type="button">INGRESAR VEHICULO</button></a>
+                <a href="../controller/Main.php?action=ingresar&id=<?php echo $id; ?>"><button class="btn boton" type="button">INGRESAR VEHICULO</button></a>
             </div>
             <div class="col-sm-3"></div>
             <div class="col-sm-3">

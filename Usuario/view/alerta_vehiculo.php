@@ -1,5 +1,5 @@
 <!--
-    Pantalla donde se muestra alerta de que el vehiculo fue registrado exitosamente
+    Pantalla donde se muestran las difirentes alertas
 -->
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
@@ -23,26 +23,27 @@
       <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
      <!--Conexion con estilos.css-->
-      <link rel="stylesheet" href="css/styles.css"> 
+      <link rel="stylesheet" href="../css/styles.css"> 
 
   </head>
   <body>
       <div class="contenedor">
-        <div class="info_registrado">
-           <p>¡VEHICULO REGISTRADO!</p><br>
-           <p>¡DISFRUTE DE SU ESTADIA!</p>
-           <div class="row info_ingreso">
-               <div class="col-sm-4">
-                    <p>PLACA: <?php echo $_GET['p']; ?> </p><!--Llamado de la placa-->
-                    <p>CELDA: <?php echo $_GET['c']; ?></p><!--Llamado de la celda-->
-                    <p>FECHA: <?php echo date('m-d-Y h:i:s a', time()); ?></p>
-               </div>
-               <div class="col-sm-6"></div>
-               <div class="col-sm-2 botones">
-                   <a href="frontend_controller.php?id=0&data=">
-                        <button class="boton">FINALIZAR</button>
-                    </a>
-                </div>
+        <div class="info_registro">
+            <!--MENSAJE DE ALERTA (Hay que  trabajarlo desde el controlador)-->
+           <!--<p>NO SE ENCUENTRA NINGÚN VEHICULO EN ESTA CELDA</p><br>-->
+           <!--<p>VEHICULO NO ENCONTRADO</p>-->
+           <p><?php echo $mensaje ?></p>
+
+           <!--Otros mensajes pueden ser-->
+           <!--<p>POR FAVOR INGRESE UNA PLACA VÁLIDA-<p>-->
+               <!--<p>POR FAVOR RETIRE EL RECIBO-->
+        </div>
+        <div class="row botones">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1">
+                <a href="../controller/Main.php?action=registrar&celda=<?php echo $numCelda;?>&id=<?php echo $idZona;?>"><!--Redireccionar a la pagina origen-->
+                    <button class="boton_regresar"><i class="fas fa-undo-alt fa-3x"></i></button>
+                </a>
             </div>
         </div>
       </div>

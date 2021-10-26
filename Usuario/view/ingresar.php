@@ -20,7 +20,7 @@
       <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
      <!--Conexion con estilos.css-->
-      <link rel="stylesheet" href="css/styles.css"> 
+      <link rel="stylesheet" href="../css/styles.css"> 
 
   </head>
   <body>
@@ -28,31 +28,35 @@
         <div class="info">
             <p>¿EN QUE CELDA SE ENCUENTRA UBICADO?</p>
         </div>
-
         <div class="botones">
             <p>
-                <?php if(true){ ?>
-                    <a href="frontend_controller.php?id=11&c=1"><button class="btn-success boton_redondo">01</button></a>
-                <?php }else{ ?>
-                    <a href="frontend_controller.php?id=11&c=1"><button class="btn-danger boton_redondo" disabled="true">01</button></a>
+            <?php for($i = 0; $i < count($celdas); $i++){ ?>
+                <?php if($celdas[$i]==1){ ?>
+                    <a href="">
+                        <button class="btn-danger boton_redondo" disabled="true">
+                            <?php echo $i+1; ?>
+                        </button>
+                    </a>
+                <?php }else if($celdas[$i]==2){ ?>
+                    <a href="../controller/Main.php?action=registrar&celda=<?php echo $i+1; ?>&id=<?php echo $idZona;?>">
+                        <button class="btn-warning boton_redondo">
+                            <?php echo $i+1; ?>
+                        </button>
+                    </a>
+                <?php }else if($celdas[$i]==3){ ?>
+                    <a href="">
+                        <button class="btn-success boton_redondo" disabled="true">
+                            <?php echo $i+1; ?>
+                        </button>
+                    </a>
                 <?php } ?>
-                <a href="frontend_controller.php?id=11&c=1"><button class="btn-danger boton_redondo" disabled="true">02</button></a>
-                <a href="frontend_controller.php?id=11&c=3"><button class="btn-success boton_redondo">03</button></a>
-                <a href="frontend_controller.php?id=11&c=4"><button class="btn-danger boton_redondo" disabled="true">04</button></a>
-                <a href="frontend_controller.php?id=11&c=5"><button class="btn-danger boton_redondo" disabled="true">05</button></a>
-            </p>
-            <p>
-                <a href="frontend_controller.php?id=11&c=6"><button class="btn-danger boton_redondo" disabled="true">06</button></a>
-                <a href="frontend_controller.php?id=11&c=7"><button class="btn-success boton_redondo">07</button></a>
-                <a href="frontend_controller.php?id=11&c=8"><button class="btn-danger boton_redondo" disabled="true">08</button></a>
-                <a href="frontend_controller.php?id=11&c=9"><button class="btn-danger boton_redondo" disabled="true">09</button></a>
-                <a href="frontend_controller.php?id=11&c=10"><button class="btn-success boton_redondo">10</button></a>
+            <?php } ?>
             </p>
         </div>
         <div class="row botones">
             <div class="col-sm-11"></div>
             <div class="col-sm-1">
-                <a href="frontend_controller.php?id=0">
+                <a href="../controller/Main.php?id=<?php echo $idZona; ?>">
                     <button class="boton_regresar"><i class="fas fa-undo-alt fa-3x"></i></button>
                 </a>
             </div>

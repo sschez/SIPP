@@ -23,14 +23,14 @@
       <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
      <!--Conexion con estilos.css-->
-      <link rel="stylesheet" href="css/styles.css"> 
+      <link rel="stylesheet" href="../css/styles.css"> 
 
   </head>
   <body>
       <div class="contenedor">
         <div class="formulario">
             <p><h3>INGRESE LA PLACA DE SU VEHICULO</h3></p>
-            <form action="frontend_controller.php?id=12&c=<?php echo $_GET['c']; ?>" method="POST" class="botones">
+            <form action="../controller/Main.php?action=ingresar_placa&celda=<?php echo $numCelda ?>&id=<?php echo $idZona ?>" method="POST" class="botones">
                 <input type="text" name="placa" required class="form-control-lg" autocomplete="OFF"
                 maxlength="6" minlength="6"/>
                 <div class="row boton_enviar">
