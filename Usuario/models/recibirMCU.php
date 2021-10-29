@@ -16,9 +16,17 @@
 
     $consulta = "UPDATE Celda SET estado=".$estadoC." WHERE idCelda = ".$idCelda;
     
-    $consulta2 = "INSERT INTO Parquea(idParquea, Celda_idCelda, Vehiculo_placa, fechaEntrada, fechaSalida) VALUES (NULL, ".$idCelda.", NNNNNN, now(), now())";
+    $consulta2 = "INSERT INTO parquea (idParquea, Celda_idCelda, Vehiculo_placa, fechaEntrada, fechaSalida) VALUES (NULL, '$idCelda', NULL, NOW() , NULL)";
 
     $resultado = mysqli_query( $conexion, $consulta);
     $resultado2 = mysqli_query( $conexion, $consulta2);
+
+    if ($resultado2){
+        echo "MELo";
+    } else{
+        echo "Mierda";
+    }
+
+
 
 ?>

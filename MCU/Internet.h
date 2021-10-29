@@ -2,7 +2,7 @@
 
 class Internet{
     public:
-        Internet(char* ssid_, char* password_){
+        Internet(const char* ssid_, const char* password_){
             ssid = ssid_;
             password = password_;
             contConexion = 0;
@@ -35,7 +35,7 @@ class Internet{
             }
         }
     private:
-        char* ssid;
-        char* password;
+        const char* ssid;
+        const char* password;
         int contConexion;
-}
+};

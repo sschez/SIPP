@@ -2,7 +2,6 @@
 #include <ESP8266HTTPClient.h>
 #include "Servidor.h"
 #include "Internet.h"
-#include "Funciones.h"
 
 //Se incluyen los parametros del wifi y del host
 const char* ssid = "CASA MARTINEZ BEDOYA";
@@ -37,6 +36,26 @@ void setup() {
   ledRGB(3);
 
   internet.conectar();
+}
+
+void ledRGB(int i) {
+  if (i == 1) {
+    digitalWrite(pRed, HIGH);
+    digitalWrite(pGreen, LOW);
+    digitalWrite(pBlue, LOW);
+  } else if (i == 3) {
+    digitalWrite(pRed, LOW);
+    digitalWrite(pGreen, HIGH);
+    digitalWrite(pBlue, LOW);
+  } else if (i == 2) {
+    digitalWrite(pRed, HIGH);
+    digitalWrite(pGreen, HIGH);
+    digitalWrite(pBlue, LOW);
+  } else {
+    digitalWrite(pRed, LOW);
+    digitalWrite(pGreen, LOW);
+    digitalWrite(pBlue, HIGH);
+  }
 }
 
 void loop() {
