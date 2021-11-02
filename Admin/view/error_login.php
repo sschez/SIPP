@@ -17,7 +17,7 @@
       integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
       
       <!--Link del css-->
-      <link type="text/css" href="../css/style_admin.css" rel="stylesheet" media="all" >
+      <link type="text/css" href="../css/style_login.css" rel="stylesheet" media="all" >
       
   </head>
   <body>

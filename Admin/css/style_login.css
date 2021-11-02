@@ -41,7 +41,7 @@ body{
     color: white;
     width: 140px;
     height: 75px;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     border-radius: 10%;
     border-width: 2px solid rgb(0, 113, 193);
 }
@@ -66,6 +66,6 @@ body{
     color: white;
     width: 200px;
     height: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     border-radius: 10%;
 }

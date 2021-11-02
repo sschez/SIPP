@@ -8,11 +8,17 @@ require_once dirname( __DIR__ ) .'/controller/loginController.php';
                 if($_GET['action']=='check_login'){
                     $cedula = $_POST['cedula'];
                     $contrasena = $_POST['contrasena'];
-                    $controlador->verificar($cedula,$contrasena);
+                    $controlador->verificar($cedula, $contrasena);
                 }else if($_GET['action']=='logout'){
                     $controlador->cerrarSesion();
+                }else if($_GET['action']=='view'){
+                    require dirname( __DIR__ ) . '/view/visualizacion.php';
+                }else if($_GET['action']=='admin'){
+                    require dirname( __DIR__ ) . '/view/admin.php';
+                }else if($_GET['action']=='home'){
+                    $controlador->regresar();
                 }
-            }else{
+            }else{//No llega ninguna acción, lo que significa que es la primera vez que se ingresa
                 require dirname( __DIR__ ) . '/view/login.php';
             }
         }
@@ -20,5 +26,4 @@ require_once dirname( __DIR__ ) .'/controller/loginController.php';
 
     $ejecutar = new Main();
     $ejecutar->main();
-    //main();
 ?>
