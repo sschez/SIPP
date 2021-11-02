@@ -45,5 +45,19 @@
             }
         }
 
+        public function ingresarParquea($idCelda, $estadoCedla){
+            $consulta = "UPDATE Celda SET estado=".$estadoC." WHERE idCelda = ".$idCelda;
+            $consulta2 = "INSERT INTO Parquea(idParquea, Celda_idCelda, fechaEntrada) VALUES (NULL, ".$idCelda.", now())";
+            
+            $resultadoCelda = $this->conexion->query($consulta);
+            $resultadoParquea = $this->conexion->query($consulta2);
+    
+            if($resultadoCelda && $resultadoParquea){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     }
 ?>

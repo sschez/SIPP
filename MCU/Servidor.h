@@ -2,13 +2,13 @@
 
 class Servidor{
   public:
-    Servidor (char* host_){
+    Servidor (const char* host_){
       host = host_;
       HTTPClient http;
     }
 
     int enviarEstadoCelda(int estado, String numCelda){
-      String full_url = "http://" + String(host) + "/SIPP/Usuario/visualizacion/models/recibirMCU.php?estadoCelda=" + String(estado) + "&idCelda=" + numCelda;
+      String full_url = "http://" + String(host) + "/SIPP/Usuario/models/recibirMCU.php?estadoCelda=" + String(estado) + "&idCelda=" + numCelda;
       http.begin(full_url);
 
       // Make request
@@ -38,6 +38,6 @@ class Servidor{
     }
 
   private:
-    char* host;
+    const char* host;
     HTTPClient http;
-}
+};
