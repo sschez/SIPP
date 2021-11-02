@@ -31,23 +31,29 @@
        </div>
       </nav>
         <div class="container container-fluid">
-          <?php for($i = 0; $i < 5;$i++){?>
+          <?php foreach($zonas as $zona){?>
             <div class="row zona">
               <div class="col-sm-4">
-                <div class="label_formulario"><h2>Zona <?php echo '0000'; ?></h2></div>
+                <div class="label_formulario"><h2>Zona <?php echo $zona['nombreZona']; ?></h2></div>
               </div>
               <div class="col-sm-5">
-                <form class="formulario" action="../controller/adminController.php?action=m_tarifa" method="post" >
-                    <label for="Tarifa" class="tarifa"><h5>Tarifa actual: <?php echo '$1000'; ?></h5></label><br>
+                <form class="formulario"
+                 action="../controller/Main.php?action=tarifa&zona=<?php echo $zona['idZona']?>" method="post" >
+                    <label for="Tarifa" class="tarifa"><h5>Tarifa actual: <?php echo $zona['tarifa']; ?></h5></label><br>
                     <input type="number" name="tarifa" class="form-control-lg" placeholder="Modificar Tarifa" required/>
                   <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                 </form>
               </div>
               <div class="col-sm-3 estado">
-                <label class="tarifa"><h5>Estado de la Zona: <?php echo 'Activa'; ?></h5></label>
-                <a href="../controller/adminController.php?action=inactive">
+                <label class="tarifa"><h5>Estado de la Zona: <?php if($zona['estadoZona']==1){ echo 'Activa'; ?></h5></label>
+                <a href="../controller/Main.php?action=inactive&zona=<?php echo $zona['idZona']?>">
                   <button type="submit" class="btn btn-danger btn-lg">Desactivar</button>
                 </a>
+                <?php }else{ echo 'Inactiva'?>
+                  <a href="../controller/Main.php?action=active&zona=<?php echo $zona['idZona']?>">
+                  <button type="submit" class="btn btn-success btn-lg">Activar</button>
+                </a>
+                <?php } ?>
               </div>
             </div>
           <?php } ?>

@@ -24,21 +24,24 @@
           href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
           <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" 
           type="text/javascript"></script>
+
+      <!--Conexion con Chart js-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
       
   </head>
   <body>
      <nav class="navbar navbar-inverse nav1">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand text-light"><br><h3>SIPP Administrador</h3></a>
+          <a class="navbar-brand text-light"><h3><br>SIPP Administrador</h3></a>
         </div>
         <a href="../controller/Main.php?action=home">
           <button type="button" class="btn btn-outline-light btn-lg navbar-btn">Regresar</button>
         </a>
        </div>
       </nav>
-      <br><br>
       <div class="container container-fluid t">
+        
         <table id="tabla1" class="table table-secondary table-hover">
              <thead class="thead thead-dark thead-hover">
                  <tr style="">
@@ -51,14 +54,21 @@
              </thead>
              <tbody>
                   <?php
-                    for($i=0; $i<8;$i++){
+                  $total = 0;
+                  $totalDiario = 0;
+                  $dia = date("Y-m-d");
+                    foreach($datos as $parqueo){
+                      $idCelda = str_split($parqueo['Celda_idCelda'], $length = 4);
+                      $total += $parqueo['pago'];
+                      $fecha = explode(" ", $parqueo['fechaEntrada']);
+                      if($dia == $fecha[0]) {$totalDiario+=$parqueo['pago'];}
                    ?>
                        <tr>
-                           <td><?php echo '0000';?></td>
-                           <td><?php echo '01';  ?> </td>
-                           <td><?php echo '2021-04-03 21:03';?> </td>
-                           <td><?php echo '2021-04-03 21:03';?> </td>
-                           <td><?php echo  '$3500'; ?> </td>
+                           <td><?php echo $idCelda[0];?></td>
+                           <td><?php echo $idCelda[1];;  ?> </td>
+                           <td><?php echo $parqueo['fechaEntrada'];?> </td>
+                           <td><?php echo $parqueo['fechaSalida'];?> </td>
+                           <td>$<?php echo  $parqueo['pago']; ?> </td>
                        </tr>
                  <?php
                      }
@@ -71,17 +81,39 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><h4><?php echo '$70000'; ?></h4></td>
+                  <td><h4>$<?php echo $totalDiario; ?></h4></td>
                </tr>
                <tr  class="bg-light">
                   <td><h4>Recaudo Total</h4></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><h4><?php echo '$70000'; ?></h4></td>
+                  <td><h4>$<?php echo $total; ?></h4></td>
                </tr>
              </tfooter>
-          </table>
+          </table><h2>Recaudo diario historico($)</h2>
+          <canvas id="myChart" width="1000px" height="200px">
+            <script type="text/javascript">
+              var data = {
+                labels: [<?php foreach($totales as $fecha){ ?>
+                  "<?php echo $fecha['fecha'] ?>",
+                <?php } ?> ],
+                datasets: [
+                  {
+                    label: "My First dataset",
+                    fillColor: "rgba(50,50,220,0.5)",
+                    strokeColor: "rgba(220,220,220,0.8)",
+                    highlightFill: "rgba(220,220,220,0.75)",
+                    highlightStroke: "rgba(220,220,220,1)",
+                    data: [<?php foreach($totales as $total) {?>  <?php echo $total['pago']; ?>,
+                                    <?php } ?>]
+                  }
+                ]
+                };
+              var ctx = document.getElementById("myChart").getContext("2d");
+              var myBarChart = new Chart(ctx).Bar(data);
+            </script>
+          </canvas>
        </div>
        <!-- jQuery -->
      <script language="javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
