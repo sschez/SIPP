@@ -29,11 +29,11 @@
   <body>
       <div class="contenedor">
         <div class="formulario">
-            <p><h3>INGRESE LA PLACA DE SU VEHICULO</h3></p>
-            <?php if ($accion == "ingresar"){ ?>
-            <form action="../controller/Main.php?action=ingresar_placa&celda=<?php echo $numCelda ?>&id=<?php echo $idZona ?>" method="POST" class="botones">
-                <input type="text" name="placa" required class="form-control-lg" autocomplete="OFF"
-                maxlength="6" minlength="6"/>
+            <p><h3>INGRESE EL MONTO A CANCELAR</h3></p>
+            <p>PAGO NECESARIO <?php echo $montoPagar ?></p>
+            <form action="../controller/Main.php?action=confirmar_pago&pagar=<?php echo $montoPagar ?>&id=<?php echo $idZona ?>&placa=<?php echo $placa?>&celda=<?php echo $celda?>" method="POST" class="botones">
+                <input type="text" name="pagado" required class="form-control-lg" autocomplete="OFF"
+                maxlength="6" minlength="4"/>
                 <div class="row boton_enviar">
                     <div class="col-sm-11"></div>
                     <div class="col-sm-1">
@@ -41,18 +41,6 @@
                     </div>
                 </div>
             </form>
-            <?php }else{ ?>
-            <form action="../controller/Main.php?action=retirar_placa&id=<?php echo $idZona ?>" method="POST" class="botones">
-                <input type="text" name="placa" required class="form-control-lg" autocomplete="OFF"
-                maxlength="6" minlength="6"/>
-                <div class="row boton_enviar">
-                    <div class="col-sm-11"></div>
-                    <div class="col-sm-1">
-                        <button type="submit" class="boton_regresar">LISTO</button>
-                    </div>
-                </div>
-            </form>
-            <?php } ?>
         </div>
       </div>
   </body>

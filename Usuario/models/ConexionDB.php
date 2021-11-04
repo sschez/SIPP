@@ -33,7 +33,7 @@
 
         public function ingresarVehiculo($idCelda, $placa){
             $insercion = "INSERT INTO vehiculo (placa) VALUES('$placa')";
-            $actualizacionParquea = "UPDATE parquea SET Vehiculo_placa='$placa' WHERE Celda_idCelda = '$idCelda'";
+            $actualizacionParquea = "UPDATE parquea SET Vehiculo_placa='$placa' WHERE Celda_idCelda = '$idCelda' ORDER BY idParquea DESC LIMIT 1";
             $actualizacionCelda = "UPDATE celda SET estado=1 WHERE idCelda = '$idCelda'";
             $resultadoInsercion = $this->conexion->query($insercion);
             $resultadoParquea = $this->conexion->query($actualizacionParquea);
@@ -45,9 +45,9 @@
             }
         }
 
-        public function ingresarParquea($idCelda, $estadoCedla){
-            $consulta = "UPDATE Celda SET estado=".$estadoC." WHERE idCelda = ".$idCelda;
-            $consulta2 = "INSERT INTO Parquea(idParquea, Celda_idCelda, fechaEntrada) VALUES (NULL, ".$idCelda.", now())";
+        public function ingresarParquea($idCelda, $estadoCelda){
+            $consulta = "UPDATE Celda SET estado=".$estadoCelda." WHERE idCelda = ".$idCelda;
+            $consulta2 = "INSERT INTO parquea (idParquea, Celda_idCelda, Vehiculo_placa, fechaEntrada, fechaSalida) VALUES (NULL, '$idCelda', NULL, NOW() , NULL)";
             
             $resultadoCelda = $this->conexion->query($consulta);
             $resultadoParquea = $this->conexion->query($consulta2);
@@ -59,5 +59,34 @@
             }
         }
 
+        public function buscarPlaca($placa){
+            $consulta = "SELECT placa FROM Vehiculo WHERE placa = '$placa'";
+            return $this->conexion->query($consulta);
+        }
+
+        public function buscarCeldaPlaca($placa){
+            $consulta = "SELECT * FROM parquea WHERE Vehiculo_placa = '$placa' ORDER BY idParquea DESC LIMIT 1";
+            $resultado =  $this->conexion->query($consulta);
+            return $resultado->fetch_row();
+        }
+
+        public function actualizarFechaSalida($placa, $cond){
+            if ($cond){
+                $consulta = "UPDATE parquea SET fechaSalida = NOW() WHERE Vehiculo_placa = '$placa' ORDER BY idParquea DESC LIMIT 1";
+            } else {
+                $consulta = "UPDATE parquea SET fechaSalida = NULL WHERE Vehiculo_placa = '$placa' ORDER BY idParquea DESC LIMIT 1";
+            }
+            return $this->conexion->query($consulta);
+        }
+
+        public function actualizarPago($placa, $monto){
+            $consulta = "UPDATE parquea SET pago='$monto' WHERE Vehiculo_placa = '$placa' ORDER BY idParquea DESC LIMIT 1";
+            return $this->conexion->query($consulta);
+        }
+
+        public function liberarCelda($celda){
+            $consulta = "UPDATE Celda SET estado = 3 WHERE idCelda = '$celda'";
+            return $this->conexion->query($consulta); 
+        }
     }
 ?>

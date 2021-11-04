@@ -1,5 +1,5 @@
 <!--
-    Pantalla donde se muestra el recibo
+    Pantalla donde se muestran las difirentes alertas
 -->
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
@@ -23,35 +23,27 @@
       <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
      <!--Conexion con estilos.css-->
-      <link rel="stylesheet" href="css/styles.css"> 
+      <link rel="stylesheet" href="../css/styles.css"> 
 
   </head>
   <body>
-      <div class="factura">
-        <div class="row">
-            <div class="col-sm-4">
-                <p>ZONA: Provenza</p>
-                <p>Parqueadero: 173773</p>
-                <p>ID: 173773</p>
-                <p>Placa del vehiculo: 173773</p>
-                <p>CONS: 173773</p>
-                <p>FECHA DE ENTRADA: 173773</p>
-                <p>FECHA DE SALIDA: 173773</p>
-                <p>TIEMPO: 2 horas</p>
-                <p>VALOR: 173773</p>
-                <p>ENTREGADO: 173773</p>
-                <p>DEVUELTO: 173773</p>
-                <p>CONCEPTO: Tasa de uso Z.E.R</p>
-                <p>TIPO: Carro</p>
-                <p>CELDA: 01</p>
-            </div>
-            <div class="col-sm-5"></div>
-            <div class="col-sm-3">
-                <p class="boton_factura">
-                    <a href="frontend_controller.php?id=0"><!--Redireccionar a la pagina de inicio-->
-                        <button class="boton">FINALIZAR</button>
-                    </a>
-                </p>
+      <div class="contenedor">
+        <div class="info_registro">
+            <!--MENSAJE DE ALERTA (Hay que  trabajarlo desde el controlador)-->
+           <!--<p>NO SE ENCUENTRA NINGÚN VEHICULO EN ESTA CELDA</p><br>-->
+           <!--<p>VEHICULO NO ENCONTRADO</p>-->
+           <p><?php echo $mensaje ?></p>
+
+           <!--Otros mensajes pueden ser-->
+           <!--<p>POR FAVOR INGRESE UNA PLACA VÁLIDA-<p>-->
+               <!--<p>POR FAVOR RETIRE EL RECIBO-->
+        </div>
+        <div class="row botones">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1">
+                <a href="../controller/Main.php?action=pagar&id=<?php echo $idZona;?>&pagar=<?php echo $necesario?>&placa=<?php echo $placa?>&celda=<?php echo $celda?>"><!--Redireccionar a la pagina origen-->
+                    <button class="boton_regresar"><i class="fas fa-undo-alt fa-3x"></i></button>
+                </a>
             </div>
         </div>
       </div>

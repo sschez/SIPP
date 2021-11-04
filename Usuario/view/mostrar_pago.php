@@ -21,32 +21,31 @@
   </head>
   <body>
       <div class="contenedor">
-        <div class="info"><?php date_default_timezone_set('America/Bogota') ?>
-            <p>Nombre Zona: <?php echo $nombre; ?></p><!--Llamado a nombre zona--->
-            <p>Fecha y Hora: <?php echo  date('d-m-Y h:i', time()); ?></p><!--Llamado a fecha y hora--->
-            <p>Precio Hora: $<?php echo $tarifa; ?></p><!--Llamado a tarifa--->
-        </div>
-
-        <div class="row imagenes">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="../img/alcaldia.PNG"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="../img/terminales.PNG"></div>
+        <div class="info_registro">
+            <p>PLACA DEL VEHICULO: <?php echo strtoupper($placa); ?></p>
+            <p>FECHA DE ENTRADA: <?php echo $datosCelda[3]; ?></p>
+            <p>FECHA DE SALIDA: <?php echo $datosCelda[4]; ?></p>
+            <?php $tiempoT = ceil((strtotime($datosCelda[4]) - strtotime($datosCelda[3]))/3600); ?>
+            <p>TIEMPO TRANSCURRIDO: <?php echo $tiempoT?> hora(s)</p>
+            <?php $pago = $tiempoT * $precioZona;?>
+            <p>TOTAL A PAGAR: <?php echo $pago ?> COP</p>
         </div>
 
         <div class="row botones">
+        <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
                 <!--Vinculo al front-end controller -->
-                <a href="../controller/Main.php?action=ingresar&id=<?php echo $id; ?>"><button class="btn boton" type="button">INGRESAR VEHICULO</button></a>
+                <a href="../controller/Main.php?action=pagar&id=<?php echo $idZona; ?>&pagar=<?php echo $pago?>&placa=<?php echo $placa?>&celda=<?php echo $datosCelda[1]?>"><button class="btn boton" type="button">CONTINUAR AL PAGO</button></a>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3">
-                <!--Vinculo al front-end controller -->
-                <a href="../controller/Main.php?action=retirar&id=<?php echo $id; ?>"><button class="btn boton" type="button">RETIRAR VEHICULO</button></a>
-            </div>
-            
-        </div> 
+        </div>
       </div>
   </body>
 </html>

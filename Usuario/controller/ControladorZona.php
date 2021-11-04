@@ -21,6 +21,22 @@
         public function obtenerEstadoCeldas(){
             return $this->zona->obtenerCeldas();
         }
+        
+        public function verificarPlaca($placa){
+            return $this->zona->verificarPlaca($placa);
+        }
+
+        public function obtenerCelda($placa){
+            return $this->zona->buscarCelda($placa);
+        }
+
+        public function obtenerTarifaZona(){
+            return $this->zona->getTarifaZona();
+        }
+
+        public function actualizarSalida($placa, $cond){
+            return $this->zona->actualizarFechaRetiro($placa, $cond);
+        }
 
         public function registroVehiculo($numCelda,$placa){
             if($numCelda<=9){
@@ -35,6 +51,14 @@
             }else{
                 return false;
             }
+        }
+
+        public function pagar($placa, $monto){
+            return $this->zona->pagar($placa, $monto);
+        }
+
+        public function retirarCelda($celda){
+            return $this->zona->retirarCelda($celda);
         }
     }
 ?>

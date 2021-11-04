@@ -27,6 +27,7 @@
                 }else if ($_GET['action'] == 'registrar') {
                     $numCelda = $_GET['celda'];
                     $idZona = $this->zona->obtenerIdZona();
+                    $accion = "ingresar";
                     require_once('../view/ingresar_placa.php');
                 }else if ($_GET['action'] == 'ingresar_placa') {
                     $placa = $_POST['placa'];
@@ -35,10 +36,54 @@
                     if($this->verificar($placa)){
                         if($this->zona->registroVehiculo($numCelda,$placa)){
                             require_once('../view/confirmacion_ingreso.php');
+                        }else{
+                            $mensaje = "Error con la base de Datos";
+                            require_once('../view/alerta_vehiculo.php');
                         }
                     }else{
                         $mensaje = "Ingrese una placa válida";
                         require_once('../view/alerta_vehiculo.php');
+                    }
+                }else if ($_GET['action'] == 'retirar') {
+                    $accion = "retirar";   
+                    $idZona = $this->zona->obtenerIdZona(); 
+                    require_once('../view/ingresar_placa.php');
+                }else if ($_GET['action'] == 'retirar_placa'){
+                    $placa = $_POST['placa'];
+                    $idZona = $this->zona->obtenerIdZona();
+                    $precioZona = $this->zona->obtenerTarifaZona();
+                    if($this->verificar($placa)){
+                        if($this->zona->verificarPlaca($placa)){
+                            $this->zona->actualizarSalida($placa, true);
+                            $datosCelda = $this->zona->obtenerCelda($placa);
+                            require_once('../view/mostrar_pago.php');
+                        } else{
+                            $mensaje = "Placa de vehiculo no registrada";
+                            require_once('../view/alerta_retiro_vehiculo.php');
+                        }
+                    } else{
+                        $mensaje = "Ingrese una placa válida";
+                        require_once('../view/alerta_retiro_vehiculo.php');
+                    }
+                }else if ($_GET['action'] == "pagar"){
+                    $idZona = $this->zona->obtenerIdZona();
+                    $montoPagar = $_GET['pagar'];
+                    $celda = $_GET['celda'];
+                    $placa = $_GET['placa'];
+                    require_once('../view/ingresar_pago.php');
+                }else if ($_GET['action'] == "confirmar_pago"){
+                    $idZona = $this->zona->obtenerIdZona();
+                    $cancelado = $_POST['pagado'];
+                    $necesario = $_GET['pagar'];
+                    $celda = $_GET['celda'];
+                    $placa = $_GET['placa'];
+                    if($cancelado - $necesario < 0){
+                        $mensaje = "Monto ingresado no paga la totalidad del producto";
+                        require_once('../view/alerta_pago.php');
+                    }else{
+                        $this->zona->pagar($placa, $necesario);
+                        $this->zona->retirarCelda($celda);
+                        require_once('../view/mostrar_factura.php');
                     }
                 }
             }else{

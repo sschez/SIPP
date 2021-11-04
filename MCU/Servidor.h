@@ -8,7 +8,7 @@ class Servidor{
     }
 
     int enviarEstadoCelda(int estado, String numCelda){
-      String full_url = "http://" + String(host) + "/SIPP/Usuario/models/recibirMCU.php?estadoCelda=" + String(estado) + "&idCelda=" + numCelda;
+      String full_url = "http://" + String(host) + "/SIPP/Usuario/controller/ControladorNMCU.php?estadoCelda=" + String(estado) + "&idCelda=" + numCelda;
       http.begin(full_url);
 
       // Make request

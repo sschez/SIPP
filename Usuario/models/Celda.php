@@ -1,4 +1,6 @@
 <?php
+    require_once dirname( __DIR__ ) . '/models/ConexionDB.php'; 
+
     class Celda{
         private $persistance;
         private $idCelda;
@@ -7,7 +9,7 @@
 
         public function __construct($idCelda) {
             $this->idCelda = $idCelda;
-            $codigoCelda = str_split($placa, $length = 4);
+            $codigoCelda = str_split($idCelda, $length = 4);
             $this->numCelda = $codigoCelda[1];
             $this->estado = 3;
             $this->persistance = new ConexionDB();
@@ -28,6 +30,10 @@
         public function cambiarEstado($estadoCelda){
             $this->estado = $estadoCelda;
             return $this->persistance->ingresarParquea($this->idCelda, $estadoCelda);
+        }
+
+        public function obtenerHoraEntrada($placa){
+            
         }
 
     }
