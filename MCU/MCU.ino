@@ -6,7 +6,7 @@
 //Se incluyen los parametros del wifi y del host
 const char* ssid = "CASA MARTINEZ BEDOYA";
 const char* password = "SEGURIDAD1";
-const char* host = "192.168.1.7";
+const char* host = "192.168.1.21";
 
 Servidor servidor(host);
 Internet internet(ssid, password);
@@ -19,6 +19,8 @@ uint8_t pInf = D4;
 
 String idCelda = "000001";
 
+int estadoCelda = servidor.recibirEstadoCelda(idCelda);
+bool control = false;
 
 void setup() {
   //Se inician los pines que se van a utilizar para los actuadores y sensores
@@ -59,9 +61,24 @@ void ledRGB(int i) {
 }
 
 void loop() {
-  if (digitalRead(pInf) == 0) {
-    ledRGB(2);
-    servidor.enviarEstadoCelda(2, idCelda);
+  if (control){
+    estadoCelda = servidor.recibirEstadoCelda(idCelda);
+    while(estadoCelda == 2){
+      estadoCelda = servidor.recibirEstadoCelda(idCelda);
+      delay(2000);
+    }
+    ledRGB(1);
+    while(estadoCelda == 1){
+      estadoCelda = servidor.recibirEstadoCelda(idCelda);
+      delay(2000);
+    }
+    ledRGB(3);
+    control = false;    
+  } else {
+    if (digitalRead(pInf) == 0) {
+      ledRGB(2);
+      servidor.enviarEstadoCelda(2, idCelda);
+      control = true;
+    }
   }
-  ledRGB(0);
 }

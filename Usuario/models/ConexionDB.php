@@ -88,5 +88,11 @@
             $consulta = "UPDATE Celda SET estado = 3 WHERE idCelda = '$celda'";
             return $this->conexion->query($consulta); 
         }
+
+        public function consultadorEstadoCelda($idCelda){
+            $consulta = "SELECT estado FROM celda WHERE idCelda = '$idCelda'";
+            $resultado = $this->conexion->query($consulta);
+             return $resultado->fetch_row();
+        }
     }
 ?>
