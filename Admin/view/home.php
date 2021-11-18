@@ -22,7 +22,7 @@
 
   </head>
   <body>
-
+    <?php if(is_null($this->adminSession->getCurrentAdmin())){ header("location: ../index.php"); }?>
     <nav class="navbar navbar-inverse nav1">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -41,9 +41,9 @@
             <div class="titulo">
               <h2>Bienvenido al panel de administración de SIPP:<?php echo $this->adminSession->getCurrentAdmin() ?></h2>
             </div><br>
-            <p><h3>Aqui podras:<?php //echo $adminSession->getCurrentType() ?></h3></p>
+            <p><h3>Aquí podrás:<?php //echo $adminSession->getCurrentType() ?></h3></p>
             <div class="texto_info"><h5>- Visualizar los datos directamente tomados 
-              en las zonas de parqueo<br><br>- Ver graficas y tablas del comportamiento
+              en las zonas de parqueo<br><br>- Ver gráficas y tablas del comportamiento
                de los parqueaderos<br><br>- Editar las tarifas de parqueo y controlar
                la disponibilidad de parqueaderos</h5></div>
           </div>

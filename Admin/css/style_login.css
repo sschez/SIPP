@@ -69,3 +69,9 @@ body{
     margin-bottom: 2%;
     border-radius: 10%;
 }
+
+.logo{
+    height:175px;
+    width: 250px;
+    border-collapse: collapse;
+}

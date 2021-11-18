@@ -86,3 +86,13 @@ body{
 .boton_enviar{
     margin-top: 25%;
 }
+.imagenes{
+    background-color:white;
+}
+.logo{
+    height:175px;
+    width: 250px;
+    border-collapse: collapse;
+    filter:brightness(1.1);
+    mix-blend-mode: multiply;
+}

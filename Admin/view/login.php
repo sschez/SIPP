@@ -48,7 +48,8 @@
             </div>
             <div class="row imagenes">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-7"><img src="../Admin/img/alcaldia.PNG"></div>
+                <div class="col-sm-4"><img src="../Admin/img/alcaldia.PNG"></div>
+                <div class="col-sm-3"><img src="../Admin/img/sipp.png" class="logo"></div>
                 <div class="col-sm-4"><img src="../Admin/img/terminales.PNG"></div>
             </div>
         </div>

@@ -27,13 +27,12 @@
             <p>Precio Hora: $<?php echo $tarifa; ?></p><!--Llamado a tarifa--->
         </div>
 
-        <div class="row imagenes">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="../img/alcaldia.PNG"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2"><img src="../img/terminales.PNG"></div>
+        <div class="row imagenes" style="background-color:white;">
+            <div class="col-sm-5"><img src="../img/alcaldia2.PNG" style="height:228x; width:353px;"></div>
+            <div class="col-sm-4"><img src="../img/sipp.png" class="logo" style="height:195px; width:275px;"></div>
+            <div class="col-sm-3"><img src="../img/terminales.PNG"></div>
         </div>
-
+        <br>
         <div class="row botones">
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
@@ -45,8 +44,8 @@
                 <!--Vinculo al front-end controller -->
                 <a href="../controller/Main.php?action=retirar&id=<?php echo $id; ?>"><button class="btn boton" type="button">RETIRAR VEHICULO</button></a>
             </div>
-            
         </div> 
+        
       </div>
   </body>
 </html>

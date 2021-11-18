@@ -28,7 +28,7 @@
             <p>ZONA: <?php echo $datos[1]?></p>
             <p>Parqueadero: <?php echo $idZona?></p>
             <p>ID: <?php echo $celda?></p>
-            <p>Placa del vehiculo: <?php $placa ?></p>
+            <p>Placa del vehiculo: <?php echo $_GET['placa'] ?></p>
             <p>FECHA DE ENTRADA: <?php echo $datosCelda[3];?></p>
             <p>FECHA DE SALIDA: <?php echo $datosCelda[4];?></p>
             <p>TIEMPO: <?php echo $necesario/$zona->obtenerTarifaZona() ?></p>

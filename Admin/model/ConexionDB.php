@@ -32,7 +32,9 @@
         }
 
         public function consultarParquea(){
-            $consulta = "SELECT * FROM parquea";
+            $consulta = "SELECT DISTINCT * FROM parquea INNER JOIN 
+                        (SELECT nombreZona,idZona FROM zona)U ON
+                        SUBSTRING(Celda_idCelda,1,4) = idZona";
             $resultado = $this->conexion->query($consulta);
             $parquea = array();
             while($row = $resultado->fetch_assoc()){
