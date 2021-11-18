@@ -91,6 +91,7 @@
                 $tarifa = $datos[2];
                 $nombre = $datos[1];
                 $id = $datos[0];
+                $estado = $this->zona->obtenerEstadoZona();
                 require dirname( __DIR__ ) . '../view/index.php';
             }
         }

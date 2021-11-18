@@ -61,7 +61,13 @@
 
         public function buscarPlaca($placa){
             $consulta = "SELECT placa FROM Vehiculo WHERE placa = '$placa'";
-            return $this->conexion->query($consulta);
+            $resultado = $this->conexion->query($consulta);
+            $placa = $resultado->fetch_row();
+            if ($placa != NULL){
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public function buscarCeldaPlaca($placa){
@@ -93,6 +99,12 @@
             $consulta = "SELECT estado FROM celda WHERE idCelda = '$idCelda'";
             $resultado = $this->conexion->query($consulta);
              return $resultado->fetch_row();
+        }
+
+        public function consultarEstadoZona($idZona){
+            $consulta = "SELECT estadoZona FROM ZONA WHERE idZona ='$idZona'";
+            $resultado = $this->conexion->query($consulta);
+            return $resultado->fetch_row();
         }
     }
 ?>

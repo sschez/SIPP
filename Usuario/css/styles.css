@@ -55,6 +55,13 @@ body{
     margin-top: 20%;
     margin-bottom: 20%;
 }
+
+.info_main{/*Informaciones en pantalla*/
+    text-align: center;
+    font-size: 30px;
+    color: azure;
+}
+
 .info_registrado{/*Informaciones en pantalla*/
     text-align: center;
     font-size: 20px;

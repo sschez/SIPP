@@ -38,6 +38,14 @@
             return $this->tarifa;
         }
 
+        public function setEstadoZona(){
+            $this->estadoZona = $this->persistance->consultarEstadoZona($this->idZona);
+        }
+
+        public function getEstadoZona(){
+            return $this->estadoZona;
+        }
+
         public function verificarPlaca($placa){
             return $this->persistance->buscarPlaca($placa);
         }

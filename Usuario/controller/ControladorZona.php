@@ -60,5 +60,10 @@
         public function retirarCelda($celda){
             return $this->zona->retirarCelda($celda);
         }
+
+        public function obtenerEstadoZona(){
+            $this->zona->setEstadoZona();
+            return $this->zona->getEstadoZona();
+        }
     }
 ?>

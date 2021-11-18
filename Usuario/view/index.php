@@ -33,19 +33,26 @@
             <div class="col-sm-3"><img src="../img/terminales.PNG"></div>
         </div>
         <br>
-        <div class="row botones">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-                <!--Vinculo al front-end controller -->
-                <a href="../controller/Main.php?action=ingresar&id=<?php echo $id; ?>"><button class="btn boton" type="button">INGRESAR VEHICULO</button></a>
+        <?php if ($estado == 1){ ?>
+            <div class="row botones">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <!--Vinculo al front-end controller -->
+                    <a href="../controller/Main.php?action=ingresar&id=<?php echo $id; ?>"><button class="btn boton" type="button">INGRESAR VEHICULO</button></a>
+                </div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <!--Vinculo al front-end controller -->
+                    <a href="../controller/Main.php?action=retirar&id=<?php echo $id; ?>"><button class="btn boton" type="button">RETIRAR VEHICULO</button></a>
+                </div>
+            </div> 
+        <?php } else {?>
+            <div class="row"><br><br><br><br>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6"><h3>ZONA CERRADA, VUELVA MÁS TARDE </h3></div>
+                
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3">
-                <!--Vinculo al front-end controller -->
-                <a href="../controller/Main.php?action=retirar&id=<?php echo $id; ?>"><button class="btn boton" type="button">RETIRAR VEHICULO</button></a>
-            </div>
-        </div> 
-        
+        <?php }?>
       </div>
   </body>
 </html>
