@@ -1,15 +1,22 @@
 <?php
-    require_once dirname( __DIR__ ) . '/models/Celda.php'; 
+    require_once dirname( __DIR__ ) . '/controller/ControladorCelda.php'; 
 
-    $celda = new Celda($_GET['idCelda']);
-    $bool = $celda->cambiarEstado($_GET['estadoCelda']);
+    $celda = new ControladorCelda($_GET['idCelda']);
 
-    echo "Estado de la celda ".$celda->getIdCelda().": ".$celda->getEstadoCelda();
+    if(isset($_GET['estadoCelda'])){
+        $bool = $celda->cambiarEstadoCelda($_GET['estadoCelda']);
 
-    if ($bool){
-        echo "\nMelo";
-    } else{
-        echo "\nMierda";
+        echo "Estado de la celda ".$celda->obtenerIdCelda().": ".$celda->obtenerEstadoCelda();
+
+        if ($bool){
+            echo "\nMelo";
+        } else{
+            echo "\nMierda";
+        }
+    }else{
+        $estado = $celda->consultarEstado();
+        echo "estado: $estado[0]";
     }
+    
     
 ?>

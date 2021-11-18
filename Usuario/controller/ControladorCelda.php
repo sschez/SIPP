@@ -24,6 +24,11 @@
         public function cambiarEstadoCelda($estadoCelda){
             return $this->celda->cambiarEstado($estadoCelda);
         }
+
+        public function consultarEstado(){
+            $this->celda->setEstadoCelda();
+            return $this->celda->getEstadoCelda();
+        }
     }
 
 ?>

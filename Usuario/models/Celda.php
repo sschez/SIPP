@@ -19,6 +19,10 @@
             return $this->idCelda;
         }
 
+        public function setEstadoCelda(){
+            $this->estado = $this->persistance->consultadorEstadoCelda($this->idCelda);
+        }
+
         public function getEstadoCelda(){
             return $this->estado;
         }
@@ -31,10 +35,5 @@
             $this->estado = $estadoCelda;
             return $this->persistance->ingresarParquea($this->idCelda, $estadoCelda);
         }
-
-        public function obtenerHoraEntrada($placa){
-            
-        }
-
     }
 ?>
