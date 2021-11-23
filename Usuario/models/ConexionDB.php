@@ -32,7 +32,7 @@
         }
 
         public function ingresarVehiculo($idCelda, $placa){
-            $insercion = "INSERT INTO vehiculo (placa) VALUES('$placa')";
+            $insercion = "INSERT IGNORE vehiculo (placa) VALUES('$placa')";
             $actualizacionParquea = "UPDATE parquea SET Vehiculo_placa='$placa' WHERE Celda_idCelda = '$idCelda' ORDER BY idParquea DESC LIMIT 1";
             $actualizacionCelda = "UPDATE celda SET estado=1 WHERE idCelda = '$idCelda'";
             $resultadoInsercion = $this->conexion->query($insercion);

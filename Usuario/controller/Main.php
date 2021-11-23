@@ -30,7 +30,7 @@
                     $accion = "ingresar";
                     require_once('../view/ingresar_placa.php');
                 }else if ($_GET['action'] == 'ingresar_placa') {
-                    $placa = $_POST['placa'];
+                    $placa = strtoupper($_POST['placa']);
                     $numCelda = $_GET['celda'];
                     $idZona = $this->zona->obtenerIdZona();
                     if($this->verificar($placa)){
@@ -49,7 +49,7 @@
                     $idZona = $this->zona->obtenerIdZona(); 
                     require_once('../view/ingresar_placa.php');
                 }else if ($_GET['action'] == 'retirar_placa'){
-                    $placa = $_POST['placa'];
+                    $placa = strtoupper($_POST['placa']);
                     $idZona = $this->zona->obtenerIdZona();
                     $precioZona = $this->zona->obtenerTarifaZona();
                     if($this->verificar($placa)){

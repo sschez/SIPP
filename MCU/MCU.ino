@@ -6,7 +6,7 @@
 //Se incluyen los parametros del wifi y del host
 const char* ssid = "CASA MARTINEZ BEDOYA";
 const char* password = "SEGURIDAD1";
-const char* host = "192.168.1.21";
+const char* host = "192.168.1.30";
 
 Servidor servidor(host);
 Internet internet(ssid, password);

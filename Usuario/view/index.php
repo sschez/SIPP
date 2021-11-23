@@ -33,7 +33,7 @@
             <div class="col-sm-3"><img src="../img/terminales.PNG"></div>
         </div>
         <br>
-        <?php if ($estado == 1){ ?>
+        <?php if ($estado[0] == 1){ ?>
             <div class="row botones">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-3">
@@ -49,8 +49,7 @@
         <?php } else {?>
             <div class="row"><br><br><br><br>
                 <div class="col-sm-4"></div>
-                <div class="col-sm-6"><h3>ZONA CERRADA, VUELVA MÁS TARDE </h3></div>
-                
+                <div class="col-sm-6"><h3>ZONA CERRADA, VUELVA MÁS TARDE</h3></div>   
             </div>
         <?php }?>
       </div>
